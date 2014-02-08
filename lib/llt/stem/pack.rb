@@ -42,9 +42,12 @@ module LLT
         block_given? ? yield : false
       end
 
+      def third_decl_with_possible_ve_abl?
+        block_given? ? yield : false
+      end
+
       def o_decl_with_possible_ne_voc?
         block_given? ? yield : false
       end
-    end
   end
 end
