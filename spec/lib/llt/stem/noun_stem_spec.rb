@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LLT::Stem::NounStem do
   let(:ns) { LLT::Stem::NounStem }
-  describe "#third_decl_with_possible_ne_abl?", :focus do
+  describe "#third_decl_with_possible_ne_abl?" do
     context "matches correctly" do
       it "with words like ratio" do
         stem = ns.new(:noun, { nom: "ratio", stem: "ration", inflection_class: 3 })
@@ -40,6 +40,22 @@ describe LLT::Stem::NounStem do
 
       stem = ns.new(:noun, { nom: "ager", inflection_class: 2 })
       stem.o_decl_with_possible_ne_voc?.should be_false
+    end
+  end
+
+  describe "#third_decl_with_possible_ve_abl?" do
+    context "matches correctly" do
+      it "with civis" do
+        stem = ns.new(:noun, { nom: "civis", stem: "civ", inflection_class: 33 })
+        stem.third_decl_with_possible_ve_abl?.should be_true
+      end
+    end
+
+    context "doesn't produce false positives" do
+      it "for other third declension nouns" do
+        stem = ns.new(:noun, { nom: "finis", stem: "fin", inflection_class: 33 })
+        stem.third_decl_with_possible_ve_abl?.should be_false
+      end
     end
   end
 end

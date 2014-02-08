@@ -25,6 +25,12 @@ module LLT
         end
       end
 
+      def third_decl_with_possible_ve_abl?
+        if @inflection_class == 33
+          @nom.match(/vis$/) && @stem.match(/v$/)
+        end
+      end
+
       def o_decl_with_possible_ne_voc?
         if @inflection_class == 2
           @nom.match(/nus$/)
