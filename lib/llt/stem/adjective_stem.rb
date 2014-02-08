@@ -20,7 +20,7 @@ module LLT
       end
 
       def o_decl_with_possible_ne_voc?
-        @inflection_class == 2 && @nom.match(/nus$/)
+        @inflection_class == 1 && @nom.match(/nus$/)
       end
     end
   end

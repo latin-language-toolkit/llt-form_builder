@@ -14,10 +14,10 @@ describe LLT::Stem::AdjectiveStem do
 
   describe "#o_decl_with_possible_ne_voc?" do
     it "does what it should" do
-      stem = as.new(:adjective, {nom: "bonus", inflection_class: 2})
+      stem = as.new(:adjective, {nom: "bonus", inflection_class: 1})
       stem.o_decl_with_possible_ne_voc?.should be_true
 
-      stem = as.new(:adjective, {nom: "pulcher", stem: "pulchr", inflection_class: 2})
+      stem = as.new(:adjective, {nom: "pulcher", stem: "pulchr", inflection_class: 1})
       stem.o_decl_with_possible_ne_voc?.should be_false
     end
   end
