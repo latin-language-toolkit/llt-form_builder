@@ -16,9 +16,12 @@ module LLT
       end
 
       def third_decl_with_possible_ne_abl?
-        if @inflection_class == 3
+        case @inflection_class
+        when 3
           @nom.match(/[id]?on?$/) && @stem.match(/d?in$|i?on$/) ||
-          @nom.match(/men$/) && @stem.match(/min$/)
+            @nom.match(/men$/) && @stem.match(/min$/)
+        when 33
+          @nom.match(/nis$/) && @stem.match(/n$/)
         end
       end
 
