@@ -18,6 +18,10 @@ module LLT
       def third_decl_with_possible_ne_abl?
         @inflection_class == 3 && @nom.match(/nis$/) && @stem.match(/n$/)
       end
+
+      def o_decl_with_possible_ne_voc?
+        @inflection_class == 2 && @nom.match(/nus$/)
+      end
     end
   end
 end
