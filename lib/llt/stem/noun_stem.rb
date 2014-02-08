@@ -21,6 +21,12 @@ module LLT
           @nom.match(/men$/) && @stem.match(/min$/)
         end
       end
+
+      def o_decl_with_possible_ne_voc?
+        if @inflection_class == 2
+          @nom.match(/nus$/)
+        end
+      end
     end
   end
 end

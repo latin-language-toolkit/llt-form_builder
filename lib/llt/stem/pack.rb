@@ -41,6 +41,10 @@ module LLT
       def third_decl_with_possible_ne_abl?
         block_given? ? yield : false
       end
+
+      def o_decl_with_possible_ne_voc?
+        block_given? ? yield : false
+      end
     end
   end
 end

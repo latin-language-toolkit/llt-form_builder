@@ -25,6 +25,13 @@ module LLT
         end
       end
 
+      def o_decl_with_possible_ne_voc?
+        super do
+          st = @stems.find { |stem| stem.comparatio == :positivus }
+          st ? st.o_decl_with_possible_ne_voc? : false
+        end
+      end
+
       private
 
       def extended_stems(args)
