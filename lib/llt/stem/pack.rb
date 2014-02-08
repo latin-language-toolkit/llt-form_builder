@@ -49,5 +49,6 @@ module LLT
       def o_decl_with_possible_ne_voc?
         block_given? ? yield : false
       end
+    end
   end
 end
