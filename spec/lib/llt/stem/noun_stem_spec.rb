@@ -55,6 +55,12 @@ describe LLT::Stem::NounStem do
       it "for other third declension nouns" do
         stem = ns.new(:noun, { nom: "finis", stem: "fin", inflection_class: 33 })
         stem.third_decl_with_possible_ve_abl?.should be_false
+
+        stem = ns.new(:noun, { nom: "sanguis", stem: "sanguin", inflection_class: 3 })
+        stem.third_decl_with_possible_ne_abl?.should be_true
+
+        stem = ns.new(:noun, { nom: "miles", stem: "milit", inflection_class: 3 })
+        stem.third_decl_with_possible_ne_abl?.should be_false
       end
     end
   end

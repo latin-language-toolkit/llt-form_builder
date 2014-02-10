@@ -19,7 +19,8 @@ module LLT
         case @inflection_class
         when 3
           @nom.match(/[id]?on?$/) && @stem.match(/d?in$|i?on$/) ||
-            @nom.match(/men$/) && @stem.match(/min$/)
+          @nom.match(/men$/) && @stem.match(/min$/) ||
+          @nom.match(/uis$/) && @stem.match(/in$/)
         when 33
           @nom.match(/nis$/) && @stem.match(/n$/)
         end
