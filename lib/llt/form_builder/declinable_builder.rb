@@ -131,7 +131,8 @@ module LLT
 
     def special_ending(word, index)
       endings_path.constants.each do |const|
-        ending = endings_path.const_get(const)[index]
+        # the rescue clause is a primitive jruby hack - needs more work
+        ending = endings_path.const_get(const)[index] rescue nil
         return ending if word.end_with?(ending.to_s)
       end
       nil
