@@ -1,5 +1,11 @@
 # LLT::FormBuilder
 
+[![Version](http://allthebadges.io/latin-language-toolkit/llt-form_builder/badge_fury.png)](http://allthebadges.io/latin-language-toolkit/llt-form_builder/badge_fury)
+[![Dependencies](http://allthebadges.io/latin-language-toolkit/llt-form_builder/gemnasium.png)](http://allthebadges.io/latin-language-toolkit/llt-form_builder/gemnasium)
+[![Build Status](http://allthebadges.io/latin-language-toolkit/llt-form_builder/travis.png)](http://allthebadges.io/latin-language-toolkit/llt-form_builder/travis)
+[![Coverage](http://allthebadges.io/latin-language-toolkit/llt-form_builder/coveralls.png)](http://allthebadges.io/latin-language-toolkit/llt-form_builder/coveralls)
+[![Code Climate](http://allthebadges.io/latin-language-toolkit/llt-form_builder/code_climate.png)](http://allthebadges.io/latin-language-toolkit/llt-form_builder/code_climate)
+
 TODO: Write a gem description
 
 ## Installation
