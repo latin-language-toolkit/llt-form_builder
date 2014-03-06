@@ -66,7 +66,7 @@ describe LLT::FormBuilder do
     it "builds all forms" do
       args = [{type: :pronoun, inflection_class: :qui}]
       form_builder_strings(args).should == %w{ qui cuius cui quem quo quocum qui quorum quibus quos quibus quibuscum
-                                               quae cuius cui quam qua quacum quae quarum quibus quas quibuscum quibus
+                                               quae cuius cui quam qua quacum quae quarum quibus quas quibus quibuscum
                                                quod cuius cui quod quo quocum quae quorum quibus quae quibus quibuscum }
     end
 

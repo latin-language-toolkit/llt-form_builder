@@ -15,7 +15,9 @@ module LLT
     end
 
     def compute
-      (regular_forms + forms_with_suffix).sort_by(&:index) # quibuscum etc.
+      # sort by index and the string length, so that quibus is one position
+      # in front of quibuscum
+      (regular_forms + forms_with_suffix).sort_by { |f| [f.index, f.to_s.size ]}
     end
 
     def init_keys
