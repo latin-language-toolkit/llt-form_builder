@@ -133,6 +133,8 @@ module LLT
       endings_path.constants.each do |const|
         # the rescue clause is a primitive jruby hack - needs more work
         ending = endings_path.const_get(const)[index] rescue nil
+        # cannot work with nil here, as every string ends with nil.to_s
+        next unless ending
         return ending if word.end_with?(ending.to_s)
       end
       nil
