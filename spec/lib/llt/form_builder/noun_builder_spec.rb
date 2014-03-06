@@ -223,6 +223,7 @@ describe LLT::FormBuilder do
             args = [{type: :noun, nominative: "hŏmō", stem: "hŏmĭn", inflection_class: 3, sexus: :m, options: options}]
             forms = LLT::FormBuilder.build(*args)
             forms.should have(2).items
+            forms.map(&:to_s).should == %w{ hŏmō hŏmō }
           end
 
           it "magister" do
