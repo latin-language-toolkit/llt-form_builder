@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov", "~> 0.7"
   spec.add_development_dependency "blunt_stub_factory"
   spec.add_development_dependency "yard"
+  spec.add_dependency "llt-core"
   spec.add_dependency "llt-constants"
   spec.add_dependency "llt-core_extensions"
   spec.add_dependency "llt-helpers"
