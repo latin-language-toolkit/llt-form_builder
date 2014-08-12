@@ -34,7 +34,8 @@ describe "segmenter api" do
       it "of nouns" do
         post('/generate', noun_request, json_headers)
         last_response.should be_ok
-        #response = last_response.body
+        response = JSON.parse(last_response.body)
+        response.should have(12).items
       end
     end
   end
