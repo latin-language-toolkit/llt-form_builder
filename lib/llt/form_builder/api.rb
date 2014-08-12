@@ -12,4 +12,7 @@ class Api < Sinatra::Base
     forms = LLT::FormBuilder.build(*request_json)
     json(forms);
   end
+
+  options '/generate' do
+  end
 end
