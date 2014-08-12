@@ -9,7 +9,9 @@ class Api < Sinatra::Base
 
   post '/generate' do
     request_json = JSON.parse(request.body.read)
+    puts request_json
+    forms = LLT::FormBuilder.build(*request_json)
 
-    json(request_json);
+    json(forms);
   end
 end

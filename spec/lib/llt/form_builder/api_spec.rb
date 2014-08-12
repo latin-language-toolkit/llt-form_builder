@@ -18,11 +18,24 @@ describe "segmenter api" do
     }
   end
 
+  let(:noun_request) do
+    [
+      {
+        type: :noun,
+        stem: "ros",
+        inflection_class: 1,
+        sexus: :f
+      }
+    ].to_json
+  end
+
   describe '/generate' do
-    it "generates forms" do
-      post('/generate', { success: true }.to_json, json_headers)
-      last_response.should be_ok
-      #response = last_response.body
+    context "generates forms" do
+      it "of nouns" do
+        post('/generate', noun_request, json_headers)
+        last_response.should be_ok
+        #response = last_response.body
+      end
     end
   end
 end
