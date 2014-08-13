@@ -36,6 +36,7 @@ describe LLT::FormBuilder do
           amicus.casus.should == 1
           amicus.numerus.should == 1
           amicus.sexus.should == :m
+          amicus.inflection_class.should == 1
 
           amico.casus.should == 6
           amico.numerus.should == 1
@@ -52,10 +53,22 @@ describe LLT::FormBuilder do
 
         it "builds all forms of A/O like pulcher" do
           args = [{type: :adjective, nominative: "pulcher", stem: "pulchr", inflection_class: 1, number_of_endings: 3, comparatio: :positivus}]
-          form_builder_strings(args).should ==%w{pulcher pulchri pulchro pulchrum pulcher pulchro pulchri pulchrorum pulchris pulchros pulchri pulchris
+          forms = LLT::FormBuilder.build(*args)
+          forms.map(&:to_s).should ==         %w{pulcher pulchri pulchro pulchrum pulcher pulchro pulchri pulchrorum pulchris pulchros pulchri pulchris
                                                  pulchra pulchrae pulchrae pulchram pulchra pulchra pulchrae pulchrarum pulchris pulchras pulchrae pulchris
                                                  pulchrum pulchri pulchro pulchrum pulchrum pulchro pulchra pulchrorum pulchris pulchra pulchra pulchris
                                                  pulchre}
+        end
+
+        it "builds all forms of A/O like altus"  do
+          args = [{type: :adjective, nominative: "altus", stem: "alt", inflection_class: 1, number_of_endings: 3, comparatio: :positivus}]
+          forms = LLT::FormBuilder.build(*args)
+          altus = forms[0]
+
+          altus.casus.should == 1
+          altus.numerus.should == 1
+          altus.sexus.should == :m
+          altus.inflection_class.should == 1
         end
 
         it "builds all forms of Third with 1 endings" do
