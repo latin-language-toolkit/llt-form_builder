@@ -10,7 +10,7 @@ describe LLT::FormBuilder do
     end
 
     def with_adjective(options)
-      args = [{type: :adjective, nominative: "atrox", stem: "atroc", inflection_class: 3,
+      args = [{type: :adjective, nominative: "atrox", stem: "atroc", inflection_class: 33,
         number_of_endings: 1, comparatio: :positivus, options: options}]
       LLT::FormBuilder.build(*args)
     end
@@ -72,7 +72,7 @@ describe LLT::FormBuilder do
         end
 
         it "builds all forms of Third with 1 endings" do
-          args = [{type: :adjective, nominative: "atrox", stem: "atroc", inflection_class: 3, number_of_endings: 1, comparatio: :positivus}]
+          args = [{type: :adjective, nominative: "atrox", stem: "atroc", inflection_class: 33, number_of_endings: 1, comparatio: :positivus}]
           form_builder_strings(args).should == %w{atrox atrocis atroci atrocem atrox atroci atroces atrocium atrocibus atroces atroces atrocibus
                                                   atrox atrocis atroci atrocem atrox atroci atroces atrocium atrocibus atroces atroces atrocibus
                                                   atrox atrocis atroci atrox atrox atroci atrocia atrocium atrocibus atrocia atrocia atrocibus
@@ -80,7 +80,7 @@ describe LLT::FormBuilder do
         end
 
         it "builds all forms of Third with 2 endings" do
-          args = [{type: :adjective, nominative: "facilis", stem: "facil", inflection_class: 3, number_of_endings: 2, comparatio: :positivus}]
+          args = [{type: :adjective, nominative: "facilis", stem: "facil", inflection_class: 33, number_of_endings: 2, comparatio: :positivus}]
           form_builder_strings(args).should == %w{facilis facilis facili facilem facilis facili faciles facilium facilibus faciles faciles facilibus
                                                   facilis facilis facili facilem facilis facili faciles facilium facilibus faciles faciles facilibus
                                                   facile facilis facili facile facile facili facilia facilium facilibus facilia facilia facilibus
@@ -88,11 +88,19 @@ describe LLT::FormBuilder do
         end
 
         it "builds all forms of Third with 3 endings" do
-          args = [{type: :adjective, nominative: "celer", stem: "celer", inflection_class: 3, number_of_endings: 3, comparatio: :positivus}]
+          args = [{type: :adjective, nominative: "celer", stem: "celer", inflection_class: 33, number_of_endings: 3, comparatio: :positivus}]
           form_builder_strings(args).should == %w{celer celeris celeri celerem celer celeri celeres celerium celeribus celeres celeres celeribus
                                                   celeris celeris celeri celerem celeris celeri celeres celerium celeribus celeres celeres celeribus
                                                   celere celeris celeri celere celere celeri celeria celerium celeribus celeria celeria celeribus
                                                   celeriter}
+        end
+
+        it "builds all forms of Third consonantic like vetus with 1 ending" do
+          args = [{type: :adjective, nominative: "vetus", stem: "veter", inflection_class: 3, number_of_endings: 1, comparatio: :positivus}]
+          form_builder_strings(args).should == %w{vetus veteris veteri veterem vetus vetere veteres veterum veteribus veteres veteres veteribus
+                                                  vetus veteris veteri veterem vetus vetere veteres veterum veteribus veteres veteres veteribus
+                                                  vetus veteris veteri vetus vetus vetere vetera veterum veteribus vetera vetera veteribus
+                                                  veteriter}
         end
 
         it "builds all forms of Pronominal" do
