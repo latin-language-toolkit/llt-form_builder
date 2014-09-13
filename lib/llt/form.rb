@@ -32,6 +32,7 @@ module LLT
     include Helpers::Functions
     include Helpers::Normalizer
     include Helpers::Metrical
+    include Helpers::Transformer
 
 
     attr_accessor :string, :stem, :ending, :inflection_class, :casus, :numerus, :sexus,
@@ -69,6 +70,10 @@ module LLT
       end
     end
     alias :inspect :to_s
+
+    def to_json(options = {})
+      to_hash(blacklist: %i{ index }).to_json(options)
+    end
 
     private
 

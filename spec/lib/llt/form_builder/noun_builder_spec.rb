@@ -122,6 +122,7 @@ describe LLT::FormBuilder do
       context "with options that select a specfic form given in a stem" do
         it "returns only forms specified in options" do
           with_noun_options(numerus: 2).should have(6).items
+          with_noun_options("numerus" => 2).should have(6).items
           with_noun_options(casus: 2).should have(2).items
           with_noun_options(numerus: 1, casus: 2).should have(1).item
         end

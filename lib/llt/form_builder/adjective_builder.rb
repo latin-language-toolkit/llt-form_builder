@@ -12,8 +12,8 @@ module LLT
     end
 
     def nominatives
-      res  = [[@nom, 1, 1]]
-      if @number_of_endings == 1 && @inflection_class == 3
+      res  = [[@nom, 1, 1, :m]]
+      if @number_of_endings == 1 && @inflection_class.to_s =~ /3/
         res += [[@nom, 1, 1, :f], [@nom, 1, 1, :n]]
       end
       res
